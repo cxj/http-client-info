@@ -1,0 +1,20 @@
+{
+    "name": "cxj/http-client-info",
+    "description": "Provide information about client making HTTP request.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Johnson",
+            "email": "cxjohnson@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Cxj\\Http\\": "src/"
+        }
+    },
+
+    "require": {}
+}
