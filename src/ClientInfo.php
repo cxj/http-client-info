@@ -14,7 +14,7 @@ class ClientInfo
 {
     public function __construct()
     {}
-    
+
     /**
      * Attempts to return the IPv4 address of the client browser making
      * this request.
