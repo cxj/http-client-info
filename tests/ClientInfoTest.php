@@ -8,26 +8,51 @@
  * @license     MIT
  */
 
-namespace Cxj\Http;
-
-/**
- * Class ClientInfoTest
- * @package Cxj\Http
+/*
+ * Namespace to allow mocking global PHP functions.
  */
-class ClientInfoTest extends \PHPUnit_Framework_TestCase
-{
-    public function testConstructor()
+namespace Cxj\Http {
+
+    $headers = array(
+        'HTTP_X_FORWARDED_FOR' => '127.0.0.1',
+        'X-Forwarded-For'      => '::0'
+    );
+
+    function apache_request_headers()
     {
-        $classname = 'Cxj\Http\ClientInfo';
+        global $headers;
 
-        // Get mock, without the constructor being called
-        $mock = $this->getMockBuilder($classname)
-            ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+        return $headers;
+    }
 
-        // now call the constructor
-        $reflectedClass = new \ReflectionClass($classname);
-        $constructor = $reflectedClass->getConstructor();
-        $constructor->invoke($mock, array());
+    /**
+     * Class ClientInfoTest
+     * @package Cxj\Http
+     */
+    class ClientInfoTest extends \PHPUnit\Framework\TestCase
+    {
+        public function testConstructor()
+        {
+            $classname = 'Cxj\Http\ClientInfo';
+
+            // Get mock, without the constructor being called
+            $mock = $this->getMockBuilder($classname)
+                ->disableOriginalConstructor()
+                ->getMockForAbstractClass();
+
+            // now call the constructor
+            $reflectedClass = new \ReflectionClass($classname);
+            $constructor    = $reflectedClass->getConstructor();
+            $class = $constructor->invoke($mock, array());
+
+            $this->assertTrue(true);
+        }
+
+        public function testGetHeaders()
+        {
+            global $headers;
+
+            $this->assertEquals(apache_request_headers(), $headers);
+        }
     }
 }
