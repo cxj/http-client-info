@@ -2,7 +2,7 @@
 /**
  * Retrieve information about web browser (client).
  *
- * @package     Cxj\Http
+ * @package cxj/http-client-info
  * @author      Chris Johnson <cxjohnson@gmail.com>
  * @copyright   2016, Chris Johnson.
  * @license     MIT
@@ -10,8 +10,14 @@
 
 namespace Cxj\Http;
 
+/**
+ * Service for obtaining web client IP address, V4 or V6.
+ */
 class ClientInfo
 {
+    /**
+     * Constructor.
+     */
     public function __construct()
     {}
 
