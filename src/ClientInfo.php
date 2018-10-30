@@ -48,7 +48,7 @@ class ClientInfo
     }
 
     /**
-     * Retrieve and return the HTTP headers.
+     * Extract the desired IP address.
      * @param $ipVersion
      *
      * @return bool|mixed
@@ -96,6 +96,7 @@ class ClientInfo
     }
 
     /**
+     * Retrieve and return the HTTP headers.
      * @return array HTTP headers.
      */
     protected function getHeaders()
