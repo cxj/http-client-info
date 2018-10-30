@@ -48,9 +48,9 @@ class ClientInfo
     }
 
     /**
+     * Retrieve and return the HTTP headers.
      * @param $ipVersion
      *
-     * @internal param array $headers
      * @return bool|mixed
      */
     protected function extractAddress($ipVersion)
